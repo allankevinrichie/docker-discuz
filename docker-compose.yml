@@ -1,0 +1,32 @@
+version: "3"
+services:
+
+  discuz:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ztj1993/discuz:latest
+    network_mode: bridge
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    links:
+      - mysql:mysql-server
+    expose:
+      - 80/tcp
+    ports:
+      - 80/tcp
+
+  mysql:
+    image: mysql:5.7
+    network_mode: bridge
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    expose:
+      - 3306/tcp
+      - 33060/tcp
+    ports:
+      - 3306/tcp
