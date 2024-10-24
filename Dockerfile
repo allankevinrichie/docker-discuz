@@ -1,6 +1,8 @@
 FROM alpine:latest as builder
 
-ADD Discuz_X3.5_SC_UTF8_20230210.zip /srv/Discuz.zip
+ENV packUrl="https://gitee.com/Discuz/DiscuzX/attach_files/1773967/download"
+RUN wget -O /srv/Discuz.zip "${packUrl}"
+
 WORKDIR /srv
 RUN unzip -q ./Discuz.zip
 
