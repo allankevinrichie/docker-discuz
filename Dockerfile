@@ -46,5 +46,4 @@ RUN set -eux; \
     xsl \
     yac \
     yaml \
-    zip; \
-    apk add --no-cache tzdata
+    zip
