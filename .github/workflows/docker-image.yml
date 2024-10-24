@@ -28,4 +28,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ztj1993/discuz:latest
+          tags: aiyoggle/discuz:latest
